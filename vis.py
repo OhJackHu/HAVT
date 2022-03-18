@@ -35,7 +35,7 @@ os.makedirs("attention_data", exist_ok=True)
 # Prepare Model
 config = CONFIGS["ViT-B_16"]
 model = VisionTransformer(config,img_size=448, num_classes=21843, zero_head=False, vis=True)
-model.load_from(np.load("/home/pengtl/jackhu/FFVT-2/imagenet21k_ViT-B_16.npz"))
+model.load_from(np.load("/home/pengtl/jackhu/DAVT/imagenet21k_ViT-B_16.npz"))
 model.eval()
 
 transform = transforms.Compose([
@@ -43,7 +43,7 @@ transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
-im = Image.open("/home/pengtl/jackhu/FFVT-2/attention_data/Laysan_Albatross_0059_488.jpg")
+im = Image.open("/home/pengtl/DAVT/FFVT-2/attention_data/Laysan_Albatross_0059_488.jpg")
 x = transform(im)
 x.size()
 
